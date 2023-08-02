@@ -123,7 +123,7 @@ export default function Home() {
             <p className="text-2xl font-bold mt-3">CÓ SỨC KHỎE, BẠN SẼ KIẾM ĐƯỢC NHIỀU TIỀN HƠN, ĐỪNG ĐẮN ĐO VỀ KHOẢN TIỀN MUA SỨC KHỎE !</p>
             <div className="w-full mt-4 mx-auto text-center p-2 bg-[#0220E6] rounded-full">
               <Link href="#formsale" className="w-full">
-                <span className="uppercase font-bold text-white text-2xl p-6">Đặt hàng ngay nhận ngay ưu đãi</span>
+                <span className="uppercase font-bold text-white text-2xl p-6">Bấm vào để đặt hàng và nhận ngay ưu đãi</span>
               </Link>
             </div>
           </div>
