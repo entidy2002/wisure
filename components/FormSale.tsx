@@ -12,16 +12,13 @@ const FormSale = () => {
         const [address, setAddress] = useState('')
         const handleSubmit = (e: any) => {
                 e.preventDefault()
-                console.log(name, phone, address);
-
-                axios.post('https://script.google.com/macros/s/AKfycbwKDCjvhpF_D-XfBqhwWUbKJ-9zId0MwZx1yUMb5b8S09hIv5UAuj8ErJGsYoEHEjVGUA/exec', {
-                        name,
-                        phone,
-                        address,
-                })
+                const formData = new FormData()
+                formData.append("Name", name)
+                formData.append("Address", address)
+                formData.append("Phone", phone)
+                axios.post('https://script.google.com/macros/s/AKfycbxdf_fOjoLDbmVr9YA_JWxB-WQsyQtT0fMUE9kITJLWgvlRqoQL3-Z25H1WY89mKymNxA/exec', formData)
                         .then(() => {
                                 console.log('succes');
-
                         })
                         .catch(err => {
                                 alert()
@@ -39,7 +36,7 @@ const FormSale = () => {
                                                 id="username"
                                                 placeholder="Họ và Tên"
                                                 required
-                                                name="name"
+                                                name="Name"
                                                 onChange={(e) => { setName(e.target.value); }}
 
                                         />
@@ -53,7 +50,7 @@ const FormSale = () => {
                                                 id="phone"
                                                 placeholder="Số điện thoại"
                                                 required
-                                                name="phone"
+                                                name="Phone"
                                                 onChange={(e) => { setPhone(e.target.value); }}
 
                                         />
@@ -67,7 +64,7 @@ const FormSale = () => {
                                                 id="address"
                                                 placeholder="Địa chỉ"
                                                 required
-                                                name="address"
+                                                name="Address"
                                                 onChange={(e) => { setAddress(e.target.value); }}
 
                                         />
