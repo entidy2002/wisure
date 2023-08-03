@@ -9,13 +9,12 @@ const Form = () => {
         const [phone, setPhone] = useState('')
         const handleSubmit = (e: any) => {
                 e.preventDefault()
-                axios.post('https://script.google.com/macros/s/AKfycbx0NsCAB6UW2Mj2rDWOYqzuHFm0ctCHEE1__rPAdYBIGSqZss5_PkKmUypCIGXDQCQY8w/exec', {
-                        name,
-                        phone
-                })
+                const formData = new FormData()
+                formData.append("Name", name)
+                formData.append("Phone", phone)
+                axios.post('https://script.google.com/macros/s/AKfycbxdf_fOjoLDbmVr9YA_JWxB-WQsyQtT0fMUE9kITJLWgvlRqoQL3-Z25H1WY89mKymNxA/exec', formData)
                         .then(() => {
                                 console.log('succes');
-
                         })
                         .catch(err => {
                                 alert()
