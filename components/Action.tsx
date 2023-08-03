@@ -17,7 +17,10 @@ const Action = () => {
                                 </div>
 
                                 <div className="w-1/2">
-                                        <div className="cursor-pointer p-2 rounded-[18px] uppercase font-bold text-2xl bg-[#FF1616] flex justify-center text-white animation-zoom">nhận ưu đãi</div>
+                                        <Link href="#formsale">
+                                                <div className="cursor-pointer p-2 rounded-[18px] uppercase font-bold text-2xl bg-[#FF1616] flex justify-center text-white animation-zoom">nhận ưu đãi</div>
+
+                                        </Link>
                                 </div>
                         </div>
 

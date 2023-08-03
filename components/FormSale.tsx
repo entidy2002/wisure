@@ -1,13 +1,37 @@
 "use client"
-import React from 'react'
+import axios from "axios"
+
+import React, { useState } from 'react'
 import { Label, TextInput, Button, Radio } from 'flowbite-react';
 import Image from 'next/image'
 import { BsFillTelephoneFill } from "react-icons/bs"
 const FormSale = () => {
+
+        const [name, setName] = useState('')
+        const [phone, setPhone] = useState('')
+        const [address, setAddress] = useState('')
+        const handleSubmit = (e: any) => {
+                e.preventDefault()
+                console.log(name, phone, address);
+
+                axios.post('https://script.google.com/macros/s/AKfycbwKDCjvhpF_D-XfBqhwWUbKJ-9zId0MwZx1yUMb5b8S09hIv5UAuj8ErJGsYoEHEjVGUA/exec', {
+                        name,
+                        phone,
+                        address,
+                })
+                        .then(() => {
+                                console.log('succes');
+
+                        })
+                        .catch(err => {
+                                alert()
+                        })
+
+        }
         return (
                 <div id="formsale" className="w-full bg-[#F6D655] flex flex-col items-center px-4">
                         <p className="mt-4 font-bold uppercase text-red-600 text-2xl">Mua với ưu đãi giảm 40%</p>
-                        <form className="flex w-full flex-col gap-2 py-4 px-8 justify-center">
+                        <form className="flex w-full flex-col gap-2 py-4 px-8 justify-center" onSubmit={handleSubmit}>
                                 <div>
                                         <TextInput
                                                 className="placeholder:italic"
@@ -15,6 +39,9 @@ const FormSale = () => {
                                                 id="username"
                                                 placeholder="Họ và Tên"
                                                 required
+                                                name="name"
+                                                onChange={(e) => { setName(e.target.value); }}
+
                                         />
                                 </div>
                                 <div>
@@ -26,6 +53,9 @@ const FormSale = () => {
                                                 id="phone"
                                                 placeholder="Số điện thoại"
                                                 required
+                                                name="phone"
+                                                onChange={(e) => { setPhone(e.target.value); }}
+
                                         />
                                 </div>
                                 <div>
@@ -37,6 +67,9 @@ const FormSale = () => {
                                                 id="address"
                                                 placeholder="Địa chỉ"
                                                 required
+                                                name="address"
+                                                onChange={(e) => { setAddress(e.target.value); }}
+
                                         />
                                 </div>
                                 <fieldset
